@@ -5,7 +5,6 @@ const Settings: ProLayoutProps & {
   logo?: string;
 } = {
   navTheme: 'light',
-  // 拂晓蓝
   colorPrimary: '#FA541C',
   layout: 'top',
   contentWidth: 'Fluid',

@@ -1,6 +1,7 @@
 ﻿import type {RequestOptions} from '@@/plugin-request/request';
 import type {RequestConfig} from '@umijs/max';
 import {message} from 'antd';
+import {BASE_URL} from "@/utils/constants";
 
 // 与后端约定的响应数据格式
 interface ResponseStructure {
@@ -13,7 +14,7 @@ interface ResponseStructure {
  * @doc https://umijs.org/docs/max/request#配置
  */
 export const requestConfig: RequestConfig = {
-  baseURL: 'http://blog.antares.cool/api',
+  baseURL: BASE_URL,
   withCredentials: true,
   timeout: 300000,
 

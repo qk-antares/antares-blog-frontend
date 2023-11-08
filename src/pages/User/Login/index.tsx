@@ -7,8 +7,9 @@ import {Alert, message, Tabs} from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, {useState} from 'react';
 import {flushSync} from 'react-dom';
-import {getPhoneCaptcha, login, loginByPhone} from "@/services/user/api";
-import {StringUtils, IconFont} from "@/utils";
+import {login, loginByPhone} from "@/services/user/api";
+import {IconFont} from "@/utils";
+import {GITEE_OAUTH_URL} from "@/utils/constants";
 
 export const LoginMessage: React.FC<{
   content: string;
@@ -43,7 +44,7 @@ const Login: React.FC = () => {
   };
 
   const goAuth = async () => {
-    history.push('https://gitee.com/oauth/authorize?client_id=060ff92c4fcb5790d4aabcd02924e10e7ea4fb78a84b7db58455fb7c05323724&redirect_uri=https://antares.cool/api/member/oauth2.0/gitee/success&response_type=code');
+    history.push(GITEE_OAUTH_URL);
   }
 
   const ActionIcons = () => {
@@ -58,7 +59,16 @@ const Login: React.FC = () => {
     return (
       <>
         <IconFont onClick={goAuth} type="icon-gitee" className={langClassName}/>
-        <a onClick={()=>{history.push('/user/register')}} style={{float: 'right', color: '#1677ff', cursor: 'pointer'}}>
+        <a onClick={()=>{
+          //路径跳转（如果没有redirect参数，则跳转到根目录）
+          const urlParams = new URL(window.location.href).searchParams;
+          const redirect = urlParams.get('redirect');
+          if(redirect){
+              history.push(`/user/register?redirect=${redirect}`)
+          } else {
+            history.push('/user/register');
+          }
+        }} style={{float: 'right', color: '#1677ff', cursor: 'pointer'}}>
           立即注册
         </a>
       </>

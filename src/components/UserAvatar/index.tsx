@@ -1,9 +1,9 @@
 import {Avatar, Dropdown, MenuProps, message} from 'antd';
 import React, {useEffect, useState} from 'react';
 import {LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
-import {outLogin} from "@/services/user/api";
 import {history} from "@@/core/history";
 import {useModel} from "@@/exports";
+import {outLogin} from "@/services/user/api";
 
 const UserAvatar: React.FC = () => {
   const { initialState } = useModel('@@initialState');

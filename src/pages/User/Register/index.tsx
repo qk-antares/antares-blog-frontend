@@ -131,12 +131,19 @@ const Register: React.FC = () => {
     };
   });
 
-  const handleSubmit = async (values: User.RegisterParams) => {
+  const handleSubmit = async () => {
     formRef.current?.validateFieldsReturnFormatValue?.().then(async (values) => {
       const res = await register(values);
       if(res.code === 200){
         message.success('注册成功！');
-        history.push('/user/login');
+
+        const urlParams = new URL(window.location.href).searchParams;
+        const redirect = urlParams.get('redirect');
+        if(redirect){
+          history.push(`/user/login?redirect=${redirect}`)
+        } else {
+          history.push('/user/login');
+        }
         return;
       }
       setUserRegisterState(res);
@@ -163,8 +170,8 @@ const Register: React.FC = () => {
           logo={<img alt="logo" src="/logo.svg" />}
           title="流火开发社区" subTitle={' '}
           submitter={{ searchConfig: {submitText: '注册', resetText: '使用已有帐号登录'}}}
-          onFinish={async (values) => {
-            await handleSubmit(values as User.RegisterParams);
+          onFinish={async () => {
+            await handleSubmit();
           }}
         >
           <h2>

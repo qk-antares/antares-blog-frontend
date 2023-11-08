@@ -2,6 +2,7 @@ import {DefaultFooter} from '@ant-design/pro-components';
 import '@umijs/max';
 import React from 'react';
 import {IconFont} from "@/utils";
+import {GithubOutlined} from "@ant-design/icons";
 
 const Footer: React.FC = () => {
   const defaultMessage = '流火开发社区';
@@ -21,8 +22,11 @@ const Footer: React.FC = () => {
         links={[
           {
             key: 'gitee',
-            title: <span style={{margin: '0 8px'}}><IconFont style={{fontSize: 16}} type='icon-gitee'/> 流火Antares</span>,
-            href: 'https://gitee.com/liuhuo-antares',
+            title: <span style={{margin: '0 8px'}}>
+              {/*<IconFont style={{fontSize: 16}} type='icon-gitee'/>流火Antares*/}
+              <GithubOutlined style={{fontSize: 18}}/> qk-antares
+            </span>,
+            href: 'https://github.com/qk-antares',
             blankTarget: true,
           },
           {

@@ -28,6 +28,8 @@ const CnBlogList: React.FC<CsdnListProps> = ({loading, dataList, changePage, tot
   const location = useLocation();
   const urlSearchParams = new URLSearchParams(location.search);
 
+    console.log(dataList)
+
   return (
     <List
       loading={dataList.length !== 0 && loading}

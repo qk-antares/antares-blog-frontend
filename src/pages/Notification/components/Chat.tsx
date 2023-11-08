@@ -17,6 +17,7 @@ import {useLocation, useModel} from "@@/exports";
 import {getConversationByTargetUid, listConversationVoByPage, listMessageVoByPage} from "@/services/message/api";
 import {history} from "@umijs/max";
 import {StringUtils} from "@/utils";
+import {WEB_SOCKET_PATH} from "@/utils/constants";
 
 const Chat: React.FC<{ref: any}> = forwardRef(({}, ref) => {
   const { initialState} = useModel('@@initialState');
@@ -74,7 +75,7 @@ const Chat: React.FC<{ref: any}> = forwardRef(({}, ref) => {
       }
     })
 
-    const newSocket = new WebSocket('ws://antares.cool:8666');
+    const newSocket = new WebSocket(WEB_SOCKET_PATH);
     setSocket(newSocket);
 
     // 在组件卸载时关闭WebSocket连接

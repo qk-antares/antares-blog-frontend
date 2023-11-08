@@ -37,11 +37,12 @@ const SearchPage: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const setData = (type: string, data: Article.Article[] | User.UserInfo[] | Search.CsdnBlog[] | Search.CnBlog[])=>{
+    console.log(type, data)
     switch (type) {
       case 'blog': setBlogList(data as Article.Article[]);break;
       case 'user': setUserList(data as User.UserInfo[]);break;
       case 'csdn': setCsdnBlogList(data as Search.CsdnBlog[]);break;
-      case 'cnBlog': setCnBlogList(data as Search.CnBlog[]);break;
+      case 'cnblog': setCnBlogList(data as Search.CnBlog[]);break;
     }
   }
 

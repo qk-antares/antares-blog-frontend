@@ -49,6 +49,7 @@ declare namespace User {
   type UserInfo = {
     uid: number;
     username: string;
+    userRole: string;
     tags: User.UserTag[];
     signature: string;
     email: string;

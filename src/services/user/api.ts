@@ -31,6 +31,14 @@ export async function login(body: User.LoginParams, options?: { [key: string]: a
   });
 }
 
+/** 下线接口 POST */
+export async function outLogin(options?: { [key: string]: any }) {
+  return request<API.R>('/member/logout', {
+    method: 'POST',
+    ...(options || {}),
+  });
+}
+
 /** 注册接口（邮箱密码注册） POST */
 export async function register(body: User.RegisterParams, options?: { [key: string]: any }) {
   return request<API.R>('/member/register', {
@@ -54,13 +62,6 @@ export async function loginByPhone(body: User.PhoneLoginParams, options?: { [key
   });
 }
 
-/** 退出登录接口 POST */
-export async function outLogin(options?: { [key: string]: any }) {
-  return request<API.R>('/member/logout', {
-    method: 'POST',
-    ...(options || {}),
-  });
-}
 
 export async function getPhoneCaptcha(
   params: User.PhoneCaptchaParams,

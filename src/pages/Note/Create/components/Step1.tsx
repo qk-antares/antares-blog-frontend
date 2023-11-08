@@ -58,7 +58,7 @@ const checkSummary = (_: any, value: string) => {
 
 type Step1Props = {
   articleId?: number;
-  ref?: any;
+  ref?: React.ForwardedRef<any>;
 }
 
 const Step1: React.FC<Step1Props> = forwardRef(({articleId}, ref) => {

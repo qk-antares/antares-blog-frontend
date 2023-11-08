@@ -1,4 +1,3 @@
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import React from 'react';
 import {useModel} from "@umijs/max";
 import {useEmotionCss} from "@ant-design/use-emotion-css";
@@ -10,22 +9,6 @@ import History from "@/components/History";
 import UserAvatar from "@/components/UserAvatar";
 import HeaderSearch from "@/components/HeaderSearch";
 import {useLocation} from "@@/exports";
-
-export const Question = () => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        height: 26,
-      }}
-      onClick={() => {
-        window.open('https://pro.ant.design/docs/getting-started');
-      }}
-    >
-      <QuestionCircleOutlined />
-    </div>
-  );
-};
 
 const GlobalHeaderRight: React.FC = () => {
   const { initialState } = useModel('@@initialState');

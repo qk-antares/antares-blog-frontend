@@ -40,6 +40,9 @@ export default [
     component: './Welcome',
     hideInMenu:true
   },
+  {
+    path: '/sites', name: '流火 Judge', icon: 'codeSandbox', component: './Judge'
+  },
   { path: '/', redirect: '/note' },
   { path: '*', layout: false, component: './404' },
 ];

@@ -6,6 +6,7 @@ import {useEmotionCss} from "@ant-design/use-emotion-css";
 import {policy, uploadAvatar} from "@/services/third-party/api";
 // @ts-ignore
 import { v4 as UUID } from "uuid"
+import "cropperjs/dist/cropper.css";
 
 export type Props = {
   visible: boolean;
